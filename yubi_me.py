@@ -1,4 +1,7 @@
+#!/usr/bin/env python3
+
 import string
+import keyboard
 from random import randrange
 
 LETTERS = [c for c in string.ascii_lowercase]
@@ -7,8 +10,8 @@ CHARS = LETTERS + NUMBERS
 CHARS_LENGTH = len(CHARS)
 
 CONFIG = {
-    'min_len' : 20,
-    'max_len' : 22,
+    'min_len' : 40,
+    'max_len' : 45,
     'has_upper' : False
 }
 
@@ -26,3 +29,7 @@ def _yubi_from_input(src, min_length, max_length):
         char_index = randrange(0, src_length)
         yubi_str += src[char_index]
     return yubi_str
+
+keyboard.add_hotkey('command+\\', lambda: keyboard.write(yubi_letters()))
+while True:
+    pass

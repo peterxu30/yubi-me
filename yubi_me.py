@@ -6,7 +6,6 @@ from random import randrange
 LETTERS = [c for c in string.ascii_lowercase]
 
 CONFIG = {
-    'is_osx' : platform.system() == 'Darwin',
     'min_len' : 40,
     'max_len' : 45
 }
@@ -26,11 +25,11 @@ def _yubi_from_input(src, min_length, max_length):
 
 
 _hotkey = 'alt+\\'
-if CONFIG['is_osx']:
+if platform.system() == 'Darwin':
     _hotkey = 'windows+\\'
 
 keyboard.add_hotkey(_hotkey, lambda: keyboard.write(yubi()))
 
 if __name__ == '__main__':
-    closeInput = input("Press ENTER to exit")
+    closeInput = input("Press " + _hotkey + " to hit 'em with the Yubi." + "\nPress ENTER to exit")
     print("Closing...")

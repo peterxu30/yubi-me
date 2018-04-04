@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
-import string, keyboard
+import string, keyboard, platform
 from random import randrange
 
 LETTERS = [c for c in string.ascii_lowercase]
 
 CONFIG = {
+    'is_osx' : platform.system() == 'Darwin',
     'min_len' : 40,
     'max_len' : 45
 }
@@ -23,7 +24,12 @@ def _yubi_from_input(src, min_length, max_length):
         yubi_str += src[char_index]
     return yubi_str
 
-keyboard.add_hotkey('alt+\\', lambda: keyboard.write(yubi()))
+
+_hotkey = 'alt+\\'
+if CONFIG['is_osx']:
+    _hotkey = 'windows+\\'
+
+keyboard.add_hotkey(_hotkey, lambda: keyboard.write(yubi()))
 
 if __name__ == '__main__':
     closeInput = input("Press ENTER to exit")

@@ -32,7 +32,7 @@ sudo ./yubi_me.py
 
 To hit 'em with the Yubi
 ```
-command + \
+alt + \
 ```
 
 ## Examples

@@ -32,7 +32,8 @@ sudo ./yubi_me.py
 
 To hit 'em with the Yubi
 ```
-alt + \
+alt + \ (Windows)
+command + \ (OSX)
 ```
 
 ## Examples
